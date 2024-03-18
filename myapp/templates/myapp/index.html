@@ -1,0 +1,25 @@
+{%extends 'myapp/base.html'%}
+{% block page_content%}
+
+<div class="row">
+  {% for i in posts %}
+  <div class="col m-2">
+
+
+    <div class="card bg-success" style="width: 18rem;">
+      <img src="/media/{{i.image}}" style="height:200px" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">
+          <h1> {{i.title}}</h1>
+        </h5>
+        <p class="card-text">
+        <h1>{{i.body | slice:'10'}}</h1>
+        </p>
+        <a href="{% url 'hello' i.pk %}" class="btn btn-primary">Read More</a>
+      </div>
+    </div>
+  </div>
+
+  {% endfor %}
+</div>
+{% endblock page_content%}
